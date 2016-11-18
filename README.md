@@ -1,1 +1,1 @@
-# book_price_compare
+# Book Price Compare aim at China online book market

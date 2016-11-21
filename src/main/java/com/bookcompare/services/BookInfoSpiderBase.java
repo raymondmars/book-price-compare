@@ -16,6 +16,7 @@ public abstract class BookInfoSpiderBase {
     protected String searchUrl;
 
     protected static final String requestAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36";
+    protected static final int requestTimeOut = 5 * 1000;
 
     public BookInfoSpiderBase(String name) {
         this.bookName = name;
@@ -25,7 +26,7 @@ public abstract class BookInfoSpiderBase {
     protected abstract String buildSearchUrl();
 
     protected Document loadPage() throws IOException{
-        return Jsoup.connect(buildSearchUrl()).userAgent(requestAgent).get();
+        return Jsoup.connect(buildSearchUrl()).userAgent(requestAgent).timeout(requestTimeOut).get();
     }
     public abstract Book getBook();
 

@@ -26,7 +26,7 @@ public class Book {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name != null ? name.trim() : name;
     }
 
     public ShopCode getShop() {

@@ -3,36 +3,43 @@ package com.bookcompare.services;
 
 import com.bookcompare.common.*;
 import com.bookcompare.entities.*;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.io.IOException;
 
 /**
  * Created by Raymond on 20/11/2016.
  */
 public abstract class BookInfoSpiderBase {
-    protected String bookDetailUrl;
-    protected double bookSellPrice;
+    protected String bookName;
+    protected String searchUrl;
 
-    public BookInfoSpiderBase(String detailUrl) {
-        this.bookDetailUrl = detailUrl;
-        this.pickUpBookInfoFromWebsite();
+    protected static final String requestAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36";
+
+    public BookInfoSpiderBase(String name) {
+        this.bookName = name;
+        this.searchUrl = buildSearchUrl();
     }
 
-    // To fill book sell price in this method
-    protected abstract void pickUpBookInfoFromWebsite();
+    protected abstract String buildSearchUrl();
 
-    public  double getSellPrice() {
-        return bookSellPrice;
+    protected Document loadPage() throws IOException{
+        return Jsoup.connect(buildSearchUrl()).userAgent(requestAgent).get();
     }
+    public abstract Book getBook();
 
-    public static BookInfoSpiderBase getSpider(ShopCode code, String detailUrl) throws BzException {
+
+    public static BookInfoSpiderBase getSpider(ShopCode code, String searchName) throws BzException {
        switch (code) {
            case JD:
-               return new JdBookInfoSpider(detailUrl);
+               return new JdBookInfoSpider(searchName);
            case AMAZON:
-               return new AmazonBookInfoSpider(detailUrl);
+               return new AmazonBookInfoSpider(searchName);
            case DANGDANG:
-               return new DangdangBookInfoSpider(detailUrl);
+               return new DangdangBookInfoSpider(searchName);
            case WINXUAN:
-               return new WinxuanBookInfoSpider(detailUrl);
+               return new WinxuanBookInfoSpider(searchName);
            default:
                throw new BzException("Invalid online shop code.");
        }

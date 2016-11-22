@@ -55,7 +55,7 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.9</version>
-      <scope>test</scope>
+      <!--<scope>test</scope>-->
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->

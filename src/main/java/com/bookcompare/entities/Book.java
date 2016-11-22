@@ -64,11 +64,5 @@ public class Book {
     public String toString() {
         return String.format("%s @ %s, sell price: ￥%s", this.name, this.shop, this.sellPrice);
     }
-    //    private double originalPrice;
-//    private BookCategory category;
-//    private String shortDesc;
-//    private String author;
-//    private String press;
-//    private Date publicationDate;
 
 }

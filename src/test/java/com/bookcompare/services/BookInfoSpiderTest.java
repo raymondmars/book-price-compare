@@ -1,7 +1,7 @@
-package services;
+package com.bookcompare.services;
+
 import com.bookcompare.common.BzException;
 import com.bookcompare.entities.ShopCode;
-import com.bookcompare.services.BookInfoSpiderBase;
 import org.junit.Test;
 
 /**
@@ -25,3 +25,4 @@ public class BookInfoSpiderTest {
         }
     }
 }
+

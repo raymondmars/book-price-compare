@@ -60,9 +60,16 @@ public class Book {
         this.detailUrl = detailUrl;
     }
 
+    public boolean isValid() {
+        return this.name != null && this.name.trim() != "" && this.sellPrice != null;
+    }
     @Override
     public String toString() {
-        return String.format("%s @ %s, sell price: ￥%s", this.name, this.shop, this.sellPrice);
+        if(isValid()) {
+            return String.format("%s @ %s, sell price: ￥%s", this.name, this.shop, this.sellPrice);
+        } else {
+            return String.format("%s @ %s, Not Found", this.name, this.shop, this.sellPrice);
+        }
     }
 
 }

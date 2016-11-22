@@ -19,6 +19,9 @@ public abstract class BookInfoSpiderBase {
     protected static final int requestTimeOut = 5 * 1000;
 
     public BookInfoSpiderBase(String name) {
+        if(name == null || name.trim() == "") {
+            throw new IllegalArgumentException("Invalid book name.");
+        }
         this.bookName = name;
         this.searchUrl = buildSearchUrl();
     }

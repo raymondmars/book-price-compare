@@ -20,7 +20,7 @@ class JdBookInfoSpider extends BookInfoSpiderBase {
 
     @Override
     protected String buildSearchUrl() {
-        return String.format("https://search.jd.com/Search?keyword=%s&enc=utf-8&wq=%s&pvid=szeo3svi.zgty1w", this.bookName, this.bookName);
+        return String.format("https://search.jd.com/Search?keyword=%s&enc=utf-8&book=y&wq=%s&pvid=mzhzysvi.zgty1w", this.bookName, this.bookName);
     }
 
     @Override

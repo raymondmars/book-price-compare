@@ -29,17 +29,21 @@ class DangdangBookInfoSpider extends BookInfoSpiderBase {
         try {
             Document doc = this.loadPage();
             if(doc != null) {
-                Element firstLi = doc.select("div#search_nature_rg > ul.bigimg > li").first(); // Get first book from search results by book name
-                if(firstLi != null) {
-                    String detailUrl = firstLi.select("p.name > a").first().attr("href");
-                    String imgUrl = firstLi.select("a.pic > img").first().attr("src");
-                    String price  = firstLi.select("p.price > span.search_now_price").first().ownText();
-                    String name   = firstLi.select("a.pic").first().attr("title");
-                    book.setName(name);  //update book name
-                    book.setDetailUrl(detailUrl);
-                    book.setSellPrice(new BigDecimal(price.replace("¥", "").replaceAll("\\s", "")));
-                    book.setImageUrl(imgUrl);
+                //确保只在当当网搜索书籍，其他内容视为无效
+                if(doc.select("div#search_nature_rg > ul.cloth_shoplist").first() == null) {
+                    Element firstLi = doc.select("div#search_nature_rg > ul.bigimg > li").first(); // Get first book from search results by book name
+                    if(firstLi != null) {
+                        String detailUrl = firstLi.select("p.name > a").first().attr("href");
+                        String imgUrl = firstLi.select("a.pic > img").first().attr("src");
+                        String price  = firstLi.select("p.price > span.search_now_price").first().ownText();
+                        String name   = firstLi.select("a.pic").first().attr("title");
+                        book.setName(name);  //update book name
+                        book.setDetailUrl(detailUrl);
+                        book.setSellPrice(new BigDecimal(price.replace("¥", "").replaceAll("\\s", "")));
+                        book.setImageUrl(imgUrl);
+                    }
                 }
+
             }
 
         } catch (IOException e) {

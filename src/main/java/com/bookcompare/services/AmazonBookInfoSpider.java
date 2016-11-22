@@ -2,10 +2,8 @@ package com.bookcompare.services;
 
 import com.bookcompare.entities.Book;
 import com.bookcompare.entities.ShopCode;
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.math.BigDecimal;

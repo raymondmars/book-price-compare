@@ -13,7 +13,7 @@ public class BookInfoSpiderTest {
     public void testAllOnlineShop() {
         try {
 
-            String name = "Java编程思想";
+            String name = "咖啡机";
 
             for(ShopCode code : ShopCode.values()) {
                 BookInfoSpiderBase spider = BookInfoSpiderBase.getSpider(code, name);

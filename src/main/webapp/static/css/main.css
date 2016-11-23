@@ -1,35 +1,41 @@
+html {
+    margin: 0px;
+    padding: 0px;
+}
 body {
-    padding-top: 45px;
+    padding: 45px 0px 0px 0px;
+    font-family: Helvetica, "Microsoft YaHei", "微软雅黑", Tahoma, Arial, 'PingFang SC', '苹方', STXihei, "华文细黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
 }
 .box {
-    margin: 0px auto;
+    /*margin: 0px auto;*/
 }
 .box .logo {
     text-align: center;
     padding: 10px 0px;
 }
 .box .logo img {
-    width: 35%;
-    height: 35%;
 }
-
+.search_form {
+}
 /* Search box 来自于： https://speckyboy.com/how-to-build-a-stylish-css3-search-box/ ，做过一些修改 */
 /* Search box start */
 .cf:before, .cf:after {
     content: "";
     display: table;
 }
-.cf:after{
+.cf:after {
     clear: both;
 }
-.cf{
+.cf {
     zoom: 1;
 }
 /* Form wrapper styling */
 .form-wrapper {
     /*width: 450px;*/
+    width: 100%;
+    zoom: 1;
     padding: 15px;
-    margin: 0px auto 50px auto;
+    margin: 0px auto 10px auto;
     background: #444;
     background: rgba(0,0,0,.2);
     border-radius: 10px;
@@ -127,7 +133,45 @@ body {
     padding: 0;
 }
 /* Search box end */
-
+.showloading {
+    padding: 0px 0px 0px 5px;
+    color: red;
+}
+.search_results {
+    margin-top: 20px;
+}
+.search_results ul {
+    margin: 0px;
+    padding: 0px;
+}
+.search_results ul li {
+    padding: 10px;
+    border: solid 1px #d3d6d8;
+    border-radius: 4px;
+    list-style-type: none;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.search_results ul li img{
+    width: 200px;
+    height: 200px;
+}
+.search_results div.shop{
+    color: blue;
+    padding: 5px 0px;
+}
+.search_results div.name{
+    color: black;
+    padding: 5px 0px;
+    font-size: 11pt;
+}
+.search_results div.price{
+    color: red;
+    font-weight: bold;
+    padding: 5px 0px;
+}
 /* 为各种浏览设备，定制控件样式  */
 @media(max-width:767px){
     .form-wrapper input {
@@ -135,6 +179,19 @@ body {
     }
     .form-wrapper button {
         width: 30%;
+    }
+    .search_results ul li{
+        float: none;
+        margin-right: 0px;
+    }
+    .search_results ul li img{
+        width: 120px;
+        height: 120px;
+    }
+    .search_results div.shop{
+        position: absolute;
+        top: 3px;
+        right: 8px;
     }
 }
 @media(min-width:768px){
@@ -144,6 +201,10 @@ body {
     .form-wrapper button {
         width: 20%;
     }
+    .search_results ul li{
+        float: none;
+        margin-right: 0px;
+    }
 }
 @media(min-width:992px){
     .form-wrapper input {
@@ -152,6 +213,11 @@ body {
     .form-wrapper button {
         width: 20%;
     }
+    .search_results ul li{
+        float: left;
+        margin-right: 20px;
+        max-width: 300px;
+    }
 }
 @media(min-width:1200px){
     .form-wrapper input {
@@ -159,6 +225,11 @@ body {
     }
     .form-wrapper button {
         width: 10%;
+    }
+    .search_results ul li{
+        float: left;
+        margin-right: 20px;
+        max-width: 300px;
     }
 }
 

@@ -31,6 +31,7 @@ public class BookComparator {
             }
 
         }
+        result.sort((o1,o2) -> o1.getSellPrice().compareTo(o2.getSellPrice()));
         return result;
     }
 }

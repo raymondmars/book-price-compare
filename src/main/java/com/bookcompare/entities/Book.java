@@ -63,6 +63,8 @@ public class Book {
     public boolean isValid() {
         return this.name != null && this.name.trim() != "" && this.sellPrice != null;
     }
+
+
     @Override
     public String toString() {
         if(isValid()) {

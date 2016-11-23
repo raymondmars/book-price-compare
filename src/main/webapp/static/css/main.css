@@ -1,16 +1,16 @@
 body {
-    padding-top: 50px;
+    padding-top: 45px;
 }
 .box {
-    margin: 20px auto;
+    margin: 0px auto;
 }
 .box .logo {
     text-align: center;
     padding: 10px 0px;
 }
 .box .logo img {
-    width: 40%;
-    height: 40%;
+    width: 35%;
+    height: 35%;
 }
 
 /* Search box 来自于： https://speckyboy.com/how-to-build-a-stylish-css3-search-box/ ，做过一些修改 */

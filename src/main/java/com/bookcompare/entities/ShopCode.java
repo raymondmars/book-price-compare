@@ -21,4 +21,19 @@ public  enum ShopCode {
        }
        throw new RuntimeException("Invalid shop code name.");
     }
+//    public static String getShopNameByCode(ShopCode code) {
+//       switch (code) {
+//           case JD:
+//               return "";
+//           case AMAZON:
+//               return "";
+//           case DANGDANG:
+//               return "";
+//           case WINXUAN:
+//               return "";
+//           default:
+//               throw new RuntimeException("Unsupported code.");
+//
+//       }
+//    }
 }

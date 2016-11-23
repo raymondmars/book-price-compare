@@ -1,6 +1,7 @@
 package com.bookcompare.services;
 
 import com.bookcompare.entities.Book;
+import com.bookcompare.entities.OnlineShop;
 import com.bookcompare.entities.ShopCode;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -24,7 +25,7 @@ class DangdangBookInfoSpider extends BookInfoSpiderBase {
     @Override
     public Book getBook() {
         Book book = new Book();
-        book.setShop(ShopCode.DANGDANG);
+        book.setShop(new OnlineShop("当当网", ShopCode.DANGDANG));
         book.setName(this.bookName);
         try {
             Document doc = this.loadPage();

@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class Book {
     private int id;
     private String name;
-    private ShopCode shop;
+    private OnlineShop shop;
     private BigDecimal sellPrice;
     private String imageUrl;
     private String detailUrl;
@@ -29,11 +29,11 @@ public class Book {
         this.name = name != null ? name.trim() : name;
     }
 
-    public ShopCode getShop() {
+    public OnlineShop getShop() {
         return shop;
     }
 
-    public void setShop(ShopCode shop) {
+    public void setShop(OnlineShop shop) {
         this.shop = shop;
     }
 

@@ -9,6 +9,13 @@ public class OnlineShop {
     private ShopCode code;
     private String webSite;
 
+    public OnlineShop() {
+
+    }
+    public OnlineShop(String name, ShopCode code) {
+        this.name = name;
+        this.code = code;
+    }
     public int getId() {
         return id;
     }

@@ -1,8 +1,9 @@
-package com.bookcompare.services;
+package com.bookcompare.services.spider;
 
 
 import com.bookcompare.common.*;
 import com.bookcompare.entities.*;
+import com.bookcompare.services.spider.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 

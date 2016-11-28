@@ -1,9 +1,10 @@
-package com.bookcompare.services;
+package com.bookcompare.services.spider;
 
 
 import com.bookcompare.entities.Book;
 import com.bookcompare.entities.OnlineShop;
 import com.bookcompare.entities.ShopCode;
+import com.bookcompare.services.spider.BookInfoSpiderBase;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 

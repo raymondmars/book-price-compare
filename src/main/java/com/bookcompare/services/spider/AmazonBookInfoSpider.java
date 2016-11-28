@@ -1,4 +1,4 @@
-package com.bookcompare.services;
+package com.bookcompare.services.spider;
 
 import com.bookcompare.entities.Book;
 import com.bookcompare.entities.OnlineShop;

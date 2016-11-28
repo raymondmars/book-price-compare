@@ -1,16 +1,33 @@
 package com.bookcompare.entities;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * Created by Raymond on 20/11/2016.
  */
-public class Book {
+@Entity
+@Table(name="books")
+public class Book implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
+    @Column(nullable = false, length = 100)
     private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "shop_code", referencedColumnName = "code")
     private OnlineShop shop;
+
+    @Column(nullable = false)
     private BigDecimal sellPrice;
+
+    @Column(length = 512)
     private String imageUrl;
+
+    @Column(length = 512)
     private String detailUrl;
 
     public int getId() {
@@ -68,9 +85,9 @@ public class Book {
     @Override
     public String toString() {
         if(isValid()) {
-            return String.format("%s @ %s, sell price: ￥%s", this.name, this.shop, this.sellPrice);
+            return String.format("%s @ %s, sell price: ￥%s", this.name, this.shop.getName(), this.sellPrice);
         } else {
-            return String.format("%s @ %s, Not Found", this.name, this.shop, this.sellPrice);
+            return String.format("%s @ %s, Not Found", this.name, this.shop.getName(), this.sellPrice);
         }
     }
 

@@ -2,6 +2,7 @@ package com.bookcompare.services;
 
 import com.bookcompare.common.BzException;
 import com.bookcompare.entities.ShopCode;
+import com.bookcompare.services.spider.BookInfoSpiderBase;
 import org.junit.Test;
 
 /**
@@ -13,7 +14,7 @@ public class BookInfoSpiderTest {
     public void testAllOnlineShop() {
         try {
 
-            String name = "咖啡机";
+            String name = "摩根财团";
 
             for(ShopCode code : ShopCode.values()) {
                 BookInfoSpiderBase spider = BookInfoSpiderBase.getSpider(code, name);

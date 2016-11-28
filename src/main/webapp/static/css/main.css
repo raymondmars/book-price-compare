@@ -216,7 +216,7 @@ body {
     .search_results ul li{
         float: left;
         margin-right: 20px;
-        max-width: 300px;
+        max-width: 280px;
     }
 }
 @media(min-width:1200px){
@@ -229,7 +229,7 @@ body {
     .search_results ul li{
         float: left;
         margin-right: 20px;
-        max-width: 300px;
+        max-width: 280px;
     }
 }
 

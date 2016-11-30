@@ -9,7 +9,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.URLEncoder;
 
 /**
  * Created by Raymond on 20/11/2016.
@@ -21,8 +23,10 @@ class JdBookInfoSpider extends BookInfoSpiderBase {
     }
 
     @Override
-    protected String buildSearchUrl() {
-        return String.format("https://search.jd.com/Search?keyword=%s&enc=utf-8&book=y&wq=%s&pvid=mzhzysvi.zgty1w", this.bookName, this.bookName);
+    protected String buildSearchUrl() throws UnsupportedEncodingException {
+        String searchName = URLEncoder.encode(this.bookName, "UTF-8");
+
+        return String.format("https://search.jd.com/Search?keyword=%s&enc=utf-8&book=y&wq=%s&pvid=mzhzysvi.zgty1w", searchName, searchName);
     }
 
     @Override

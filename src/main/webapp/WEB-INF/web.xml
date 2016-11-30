@@ -27,7 +27,9 @@
       <param-name>forceEncoding</param-name>
       <param-value>true</param-value>
     </init-param>
+    <async-supported>true</async-supported>
   </filter>
+
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
@@ -53,5 +55,18 @@
     <!-- Disables URL-based sessions (no more 'jsessionid' in the URL using Tomcat) -->
     <tracking-mode>COOKIE</tracking-mode>
   </session-config>
+
+  <!-- Spring的log4j监听器 -->
+  <context-param>
+    <param-name>log4jConfigLocation</param-name>
+    <param-value>WEB-INF/log4j.properties</param-value>
+  </context-param>
+  <context-param>
+    <param-name>log4jRefreshInterval</param-name>
+    <param-value>6000</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+  </listener>
 
 </web-app>

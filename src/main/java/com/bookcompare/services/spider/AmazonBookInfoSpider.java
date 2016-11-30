@@ -7,7 +7,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.URLEncoder;
 
 /**
  * Created by Raymond on 20/11/2016.
@@ -18,8 +20,8 @@ class AmazonBookInfoSpider extends BookInfoSpiderBase {
         super(searchName);
     }
     @Override
-    protected String buildSearchUrl() {
-        return String.format("https://www.amazon.cn/s/ref=nb_sb_noss_2?__mk_zh_CN=亚马逊网站&url=search-alias=stripbooks&field-keywords=%s", this.bookName);
+    protected String buildSearchUrl() throws UnsupportedEncodingException {
+        return String.format("https://www.amazon.cn/s/ref=nb_sb_noss_2?__mk_zh_CN=亚马逊网站&url=search-alias=stripbooks&field-keywords=%s", URLEncoder.encode(this.bookName, "UTF-8"));
     }
 
     @Override

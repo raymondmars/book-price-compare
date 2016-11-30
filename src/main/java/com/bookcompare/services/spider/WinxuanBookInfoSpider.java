@@ -8,7 +8,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.URLEncoder;
 
 /**
  * Created by Raymond on 20/11/2016.
@@ -19,8 +21,8 @@ class WinxuanBookInfoSpider extends BookInfoSpiderBase {
         super(searchName);
     }
     @Override
-    protected String buildSearchUrl() {
-        return String.format("http://search.winxuan.com/search?keyword=%s&type=", this.bookName);
+    protected String buildSearchUrl() throws UnsupportedEncodingException {
+        return String.format("http://search.winxuan.com/search?keyword=%s&type=", URLEncoder.encode(this.bookName, "UTF-8"));
     }
 
     @Override

@@ -40,7 +40,7 @@
                 if($.trim(this.keyword) !== '') {
                     this.loadingText = "查询中...";
                     this.resultItems = [];
-                    this.$http.post('search?keyword=' + this.keyword).then(function(res) {
+                    this.$http.post('search?keyword=' + encodeURI(this.keyword)).then(function(res) {
                         console.log(res.data);
                         this.resultItems = res.data;
                         this.loadingText = "";

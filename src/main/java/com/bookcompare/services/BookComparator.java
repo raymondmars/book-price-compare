@@ -5,10 +5,10 @@ import com.bookcompare.entities.Book;
 import com.bookcompare.entities.OnlineShop;
 import com.bookcompare.entities.ShopCode;
 import com.bookcompare.services.spider.BookInfoSpiderBase;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 /**
  * Created by Raymond on 22/11/2016.
@@ -18,6 +18,8 @@ public class BookComparator {
     private IBookService bookService;
 
     private String bookName;
+
+    private static final Logger logger = Logger.getLogger(BookComparator.class);
 
     public BookComparator(String name, IBookService service) {
        this.bookName = name;
@@ -46,7 +48,7 @@ public class BookComparator {
                 }
 
             } catch (BzException bzE) {
-               bzE.printStackTrace();
+               logger.error(bzE);
             }
 
         }

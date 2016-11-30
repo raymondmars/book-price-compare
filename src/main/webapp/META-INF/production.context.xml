@@ -16,7 +16,7 @@
               removeAbandonedTimeout="55"
               username="javaee"
               password="jee@9527"
-              driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://127.0.0.1:3306/bookcompare?createDatabaseIfNotExist=true"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://127.0.0.1:3306/bookcompare?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=UTF-8"
     />
 </Context>

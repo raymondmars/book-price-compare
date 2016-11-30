@@ -12,18 +12,18 @@ public class BookInfoSpiderTest {
 
     @Test
     public void testAllOnlineShop() {
-        try {
+//        try {
 
-            String name = "摩根财团";
+//            String name = "摩根财团";
+//
+//            for(ShopCode code : ShopCode.values()) {
+//                BookInfoSpiderBase spider = BookInfoSpiderBase.getSpider(code, name);
+//                System.out.println(spider.getBook());
+//            }
 
-            for(ShopCode code : ShopCode.values()) {
-                BookInfoSpiderBase spider = BookInfoSpiderBase.getSpider(code, name);
-                System.out.println(spider.getBook());
-            }
-
-        } catch (BzException e) {
-            e.printStackTrace();
-        }
+//        } catch (BzException e) {
+//            e.printStackTrace();
+//        }
     }
 }
 

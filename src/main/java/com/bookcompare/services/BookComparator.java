@@ -32,6 +32,7 @@ public class BookComparator {
                 shop.setCode(code.toString());
                 List<Book> list = bookService.queryByName(shop, this.bookName);
                 if(list != null && list.size() > 0) {
+                    //result.addAll(list);
                     result.add(list.get(0));
                 } else {
                     Book book = BookInfoSpiderBase.getSpider(code, this.bookName).getBook();

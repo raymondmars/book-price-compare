@@ -4,9 +4,8 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.3.xsd
@@ -15,7 +14,7 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop.xsd">
+        http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
 
     <!--指明 controller 所在包，并扫描其中的注解-->
     <context:component-scan base-package="com.bookcompare"/>
@@ -42,19 +41,10 @@
         </property>
     </bean>
 
-    <!-- 以下为数据库和hibernate配置 -->
-    <context:property-placeholder location="/WEB-INF/db.properties" />
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-          destroy-method="close">
-        <property name="driverClassName" value="${jdbc.mysql.driverClassName}" />
-        <property name="url" value="${jdbc.mysql.url}" />
-        <property name="username" value="${jdbc.mysql.username}" />
-        <property name="password" value="${jdbc.mysql.password}" />
-        <property name="maxActive" value="100"></property>
-        <property name="minIdle" value="20"></property>
-        <property name="maxWait" value="3000"></property>
-        <property name="initialSize" value="30"></property>
-    </bean>
+    <!-- let the container manage the connection pooling. -->
+    <jee:jndi-lookup
+            id="dataSource"
+            jndi-name="jdbc/BookDataSource" />
 
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
@@ -67,7 +57,7 @@
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>

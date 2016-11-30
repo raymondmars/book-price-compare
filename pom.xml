@@ -80,8 +80,6 @@
     </dependency>
 
 
-
-
     <!-- JSTL -->
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -134,11 +132,6 @@
       <version>4.9</version>
       <!--<scope>test</scope>-->
     </dependency>
-    <!--<dependency>-->
-      <!--<groupId>com.github.tomakehurst</groupId>-->
-      <!--<artifactId>wiremock</artifactId>-->
-      <!--<version>2.3.1</version>-->
-    <!--</dependency>-->
 
     <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
     <dependency>
@@ -179,6 +172,19 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <!-- Deployment -->
+      <!-- https://mvnrepository.com/artifact/org.apache.tomcat.maven/tomcat7-maven-plugin -->
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <url>http://bookcompare.com:9000/deploy</url>
+          <server>BookCompareServer</server> <!-- config in maven settings file: .m2/settings.xml -->
+          <update>true</update>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
+
 </project>

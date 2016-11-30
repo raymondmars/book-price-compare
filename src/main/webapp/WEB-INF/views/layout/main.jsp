@@ -45,9 +45,10 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">首页</a></li>
-                    <li><a href="#about">关于</a></li>
-                    <li><a href="#contact">联系我们</a></li>
+                    <li class="active"><a href="/">首页</a></li>
+                    <%--<li><a href="#about">关于</a></li>--%>
+                    <%--<li><a href="#contact">联系我们</a></li>--%>
+                    <li><a href="https://github.com/RobotJiang/book_price_compare">Fork me on GitHub</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -58,6 +59,7 @@
         <decorator:body />
 
     </div><!-- /.container -->
+
 
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>

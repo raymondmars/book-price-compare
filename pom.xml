@@ -85,8 +85,6 @@
     </dependency>
 
 
-
-
     <!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
     <dependency>
       <groupId>commons-dbcp</groupId>
@@ -208,6 +206,7 @@
           <url>http://bookcompare.com:9000/deploy</url>
           <server>BookCompareServer</server> <!-- config in maven settings file: .m2/settings.xml -->
           <update>true</update>
+          <contextFile>${project.build.directory}/${project.build.finalName}/META-INF/production.context.xml</contextFile>
         </configuration>
       </plugin>
     </plugins>

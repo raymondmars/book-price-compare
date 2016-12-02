@@ -1,5 +1,6 @@
 package com.bookcompare.controllers;
 
+import com.bookcompare.common.Utility;
 import com.bookcompare.entities.Book;
 import com.bookcompare.entities.OnlineShop;
 import com.bookcompare.entities.ShopCode;
@@ -47,14 +48,14 @@ public class HomeController {
     }
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public @ResponseBody List<Book> search(@RequestParam String keyword) {
-        try {
-            keyword = URLDecoder.decode(keyword, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
 
-        if(keyword != null && keyword.trim() != "") {
-            return new BookComparator(keyword.trim(), bookService).getComparableBooks();
+        if(!Utility.isBlank(keyword)) {
+            try {
+                keyword = URLDecoder.decode(keyword.trim(), "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            return new BookComparator(keyword, bookService).getComparableBooks();
         } else {
             return new ArrayList<Book>();
         }

@@ -43,16 +43,6 @@ class RelationDbBookStore implements IBookStore {
         } else {
             return null;
         }
-//        if(!hibernateTmplMysql.find("from Book b where b.shop = ? and b.name = ?", shop, name).isEmpty()) {
-//            Optional<Book> book = (Optional<Book>) hibernateTmplMysql.find("from Book b where b.shop = ? and b.name = ?", shop, name).stream().findFirst();
-//            if (book.isPresent()) {
-//                return book.get();
-//            } else {
-//                return null;
-//            }
-//        } else {
-//            return null;
-//        }
     }
 
 }

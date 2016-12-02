@@ -19,4 +19,6 @@ gen### Java template
 hs_err_pid*
 
 .DS_Store
-target/
+target/ 
+
+src/main/webapp/WEB-INF/logs/

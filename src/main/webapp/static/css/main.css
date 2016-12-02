@@ -232,6 +232,8 @@ body {
         max-width: 260px;
     }
 }
-
+template {
+    display: none;
+}
 
 

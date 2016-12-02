@@ -16,7 +16,7 @@ class OnlineShopImpl implements IOnlineShopDao {
 
     @Override
     public boolean existedShop(String code) {
-        return !hibernateTmplMysql.find("from OnlineShop o where o.code = ?", code).isEmpty();
+        return !hibernateTmplMysql.find("from OnlineShop o where o.code = ?0", code).isEmpty();
     }
 
     @Override

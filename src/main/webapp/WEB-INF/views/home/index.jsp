@@ -2,7 +2,8 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<div class = "box" id = "box">
+<template id="search_panel">
+<div>
     <div class="logo">
         <img src="<c:url value="/static/images/bookstore.png" />" />
     </div>
@@ -15,25 +16,33 @@
     <div class="showloading">{{loadingText}}</div>
     <div class="search_results" v-if="resultItems.length > 0">
         <ul>
-           <li v-for="item in resultItems">
-               <div>
-                   <a v-bind:href="item.detailUrl" target="_blank"><img v-bind:src="item.imageUrl" /></a>
-               </div>
-               <div class="shop">{{item.shop.name}}</div>
-               <div class="name"><a v-bind:href="item.detailUrl" target="_blank">{{item.name}}</a></div>
-               <div class="price">￥{{item.sellPrice}}</div>
-           </li>
+            <li v-for="item in resultItems">
+                <div>
+                    <a v-bind:href="item.detailUrl" target="_blank"><img v-bind:src="item.imageUrl" /></a>
+                </div>
+                <div class="shop">{{item.shop.name}}</div>
+                <div class="name"><a v-bind:href="item.detailUrl" target="_blank">{{item.name}}</a></div>
+                <div class="price">￥{{item.sellPrice}}</div>
+            </li>
         </ul>
     </div>
     <div style="clear:both" />
 </div>
+</template>
+
+<div class = "box" id = "box">
+    <search-component></search-component>
+</div>
+
 <script>
-    var search = new Vue({
-        el: '#box',
-        data: {
-            keyword: '',
-            loadingText: '',
-            resultItems: []
+    Vue.component('search-component', {
+        template: '#search_panel',
+        data: function() {
+            return {
+                keyword: '',
+                loadingText: '',
+                resultItems: []
+            }
         },
         methods: {
             query: function() {
@@ -51,6 +60,8 @@
                 }
             }
         }
-
+    });
+    new Vue({
+        el: '#box'
     });
 </script>

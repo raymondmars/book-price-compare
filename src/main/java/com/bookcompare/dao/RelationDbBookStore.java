@@ -22,8 +22,8 @@ class RelationDbBookStore implements IBookStore {
 
     @Override
     public List<Book> queryByName(OnlineShop shop, String name) {
-        if(!hibernateTmplMysql.find("from Book b where b.shop = ? and b.name like ?", shop, "%" + name + "%").isEmpty()) {
-            return (List<Book>)hibernateTmplMysql.find("from Book b where b.shop = ? and b.name like ?", shop, "%" + name + "%");
+        if(!hibernateTmplMysql.find("from Book b where b.shop = ?0 and b.name like ?1", shop, "%" + name + "%").isEmpty()) {
+            return (List<Book>)hibernateTmplMysql.find("from Book b where b.shop = ?0 and b.name like ?1", shop, "%" + name + "%");
         } else {
             return new ArrayList<>();
         }
@@ -37,7 +37,7 @@ class RelationDbBookStore implements IBookStore {
 
     @Override
     public Book getBook(OnlineShop shop, String name) {
-        Optional<Book> book = (Optional<Book>) hibernateTmplMysql.find("from Book b where b.shop = ? and b.name = ?", shop, name).stream().findFirst();
+        Optional<Book> book = (Optional<Book>) hibernateTmplMysql.find("from Book b where b.shop = ?0 and b.name = ?1", shop, name).stream().findFirst();
         if (book.isPresent()) {
             return book.get();
         } else {

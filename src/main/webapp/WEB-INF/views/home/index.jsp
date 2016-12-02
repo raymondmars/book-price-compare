@@ -14,6 +14,7 @@
         </form>
     </div>
     <div class="showloading">{{loadingText}}</div>
+    <div class="alert alert-info" v-if="resultItems.length == 0 && loadingText ==''"><strong>提示：</strong>搜索文字尽量匹配完整书名.</div>
     <div class="search_results" v-if="resultItems.length > 0">
         <ul>
             <li v-for="item in resultItems">

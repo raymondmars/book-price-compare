@@ -15,9 +15,9 @@ import org.apache.log4j.Logger;
  */
 public class BookComparator {
 
-    private IBookService bookService;
+    private final IBookService bookService;
 
-    private String bookName;
+    private final String bookName;
 
     private static final Logger logger = Logger.getLogger(BookComparator.class);
 

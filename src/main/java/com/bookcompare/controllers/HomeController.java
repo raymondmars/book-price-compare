@@ -53,7 +53,7 @@ public class HomeController {
             try {
                 keyword = URLDecoder.decode(keyword.trim(), "UTF-8");
             } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+                logger.error(e);
             }
             return new BookComparator(keyword, bookService).getComparableBooks();
         } else {

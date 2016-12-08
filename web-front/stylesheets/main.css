@@ -6,14 +6,14 @@ body {
     padding: 45px 0px 0px 0px;
     font-family: Helvetica, "Microsoft YaHei", "微软雅黑", Tahoma, Arial, 'PingFang SC', '苹方', STXihei, "华文细黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
 }
-.box {
+.search {
     /*margin: 0px auto;*/
 }
-.box .logo {
+.search .logo {
     text-align: center;
     padding: 10px 0px;
 }
-.box .logo img {
+.search .logo img {
 }
 .search_form {
 }

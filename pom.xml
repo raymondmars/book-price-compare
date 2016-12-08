@@ -198,7 +198,6 @@
         </configuration>
       </plugin>
       <!-- Deployment -->
-      <!-- https://mvnrepository.com/artifact/org.apache.tomcat.maven/tomcat7-maven-plugin -->
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
         <artifactId>tomcat7-maven-plugin</artifactId>
@@ -207,8 +206,6 @@
           <url>http://bookcompare.com:9000/deploy</url>
           <server>BookCompareServer</server> <!-- config in maven settings file: .m2/settings.xml -->
           <update>true</update>
-          <!--<mode>both</mode>-->
-          <!--<contextFile>${project.build.directory}/${project.build.finalName}/META-INF/context.xml</contextFile>-->
         </configuration>
       </plugin>
     </plugins>

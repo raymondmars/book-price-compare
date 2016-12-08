@@ -19,6 +19,12 @@ gen### Java template
 hs_err_pid*
 
 .DS_Store
-target/ 
+target/
 
 src/main/webapp/WEB-INF/logs/
+
+#前端集成node.js
+node_modules/
+npm-debug.log
+src/main/webapp/static/js/*
+src/main/webapp/static/images/*
